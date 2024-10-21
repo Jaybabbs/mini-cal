@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Simple Calculator</h1>
+        <input id="firstInput" type="text" placeholder="Enter first number">
+        <input id="secondInput" type="text" placeholder="Enter second number">
+        <div class="container">
+            <div class="function">
+                <button onclick="add()">+</button>
+                <button onclick="divide()">/</button>
+                <button onclick="multiply()">×</button>
+                <button onclick="subtract()">-</button>
+                <button class="reset-button" onclick="resetCalculator()">Reset</button>
+
+            </div>
+            <div class="result-container">
+                <p id="result">Result</p>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+
+</body>
+</html>
+<script>
+    let result = document.getElementById('result')
+    function add() {
+        let first = Number(document.getElementById('firstInput').value.trim())
+        let second = Number(document.getElementById('secondInput').value.trim())
+        result.innerHTML = first + second
+        }
+        function divide() {
+        let first = Number(document.getElementById('firstInput').value.trim())
+        let second = Number(document.getElementById('secondInput').value.trim())
+        result.innerHTML = first / second
+        }
+        function multiply() {
+        let first = Number(document.getElementById('firstInput').value.trim())
+        let second = Number(document.getElementById('secondInput').value.trim())
+        result.innerHTML = first * second
+        }
+        function substract() {
+        let first = Number(document.getElementById('firstInput').value.trim())
+        let second = Number(document.getElementById('secondInput').value.trim())
+        result.innerHTML = first - second
+        }
+        function resetCalculator() {
+            document.getElementById('firstInput').value = '';
+            document.getElementById('secondInput').value = '';
+            result.innerHTML = 'Result';}
+
+</script>
