@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Simple Calculator</title>
+
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Simple Calculator</h1>
+        <input id="firstInput" type="text" placeholder="Enter first number">
+        <input id="secondInput" type="text" placeholder="Enter second number">
+        <div class="container">
+            <div class="function">
+                <button onclick="calculate('add')">+</button>
+                <button onclick="calculate('divide')">/</button>
+                <button onclick="calculate('multiply')">×</button>
+                <button onclick="calculate('subtract')">-</button>
+                <button class="reset-button" onclick="resetCalculator()">Reset</button>
+            </div>
+            <div class="result-container">
+                <p id="result">Result</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let result = document.getElementById('result');
+
+        function calculate(operation) {
+            let first = Number(document.getElementById('firstInput').value.trim());
+            let second = Number(document.getElementById('secondInput').value.trim());
+
+            if (isNaN(first) || isNaN(second)) {
+                result.innerHTML = 'Please enter valid numbers';
+                return;
+            }
+
+            if (operation === 'add') {
+                result.innerHTML = first + second;
+            } else if (operation === 'subtract') {
+                result.innerHTML = first - second;
+            } else if (operation === 'multiply') {
+                result.innerHTML = first * second;
+            } else if (operation === 'divide') {
+                if (second === 0) {
+                    result.innerHTML = 'Cannot divide by zero';
+                } else {
+                    result.innerHTML = first / second;
+                }
+            }
+        }
+
+        function resetCalculator() {
+            document.getElementById('firstInput').value = '';
+            document.getElementById('secondInput').value = '';
+            result.innerHTML = 'Result';
+        }
+    </script>
+</body>
+</html>
